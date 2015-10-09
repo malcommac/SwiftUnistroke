@@ -22,7 +22,7 @@ A more detailed description of the algorithm is available both on [official proj
 This library also contain an example project which demostrate how the algorithm works with a set of loaded templates; extends this library is pretty easy and does not involve any machine learning stuff.
 Other languages implementation can be [found here](https://depts.washington.edu/aimgroup/proj/dollar/).
 
-###Highlights
+##Highlights
 - [x] Fast gestures recognition
 - [x] Simple code, less than 200 lines
 - [x] Easy extensible pattern templates collection
@@ -36,12 +36,8 @@ Other languages implementation can be [found here](https://depts.washington.edu/
 - If you **want to contribute**, submit a pull request.
 
 ##Version History
-##1.2 (Oct 9, 2015)
-- First version
-
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+##1.0 (Oct 9, 2015)
+- First release
 
 ## Requirements
 - Mac OS X 10.10+ or iOS 8+
@@ -100,6 +96,6 @@ Daniele Margutti
 *twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
 *mail*: hello [at] danielemargutti dot com    
 
-## License
+### License
 
 SwiftUnistroke is available under the MIT license. See the LICENSE file for more info.
