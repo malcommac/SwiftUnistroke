@@ -146,7 +146,6 @@ public class SwiftUnistrokeTemplate : SwiftUnistroke {
 	public init(name: String, points: [StrokePoint]) {
 		self.name = name
 		var initializedPoints = StrokePoint.resample(points, totalPoints: StrokeConsts.numPoints)
-		print(initializedPoints)
 		let radians = StrokePoint.indicativeAngle(initializedPoints)
 		initializedPoints = StrokePoint.rotate(initializedPoints, byRadians: -radians)
 		initializedPoints = StrokePoint.scale(initializedPoints, toSize: StrokeConsts.squareSize)

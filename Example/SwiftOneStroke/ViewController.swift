@@ -18,14 +18,9 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-	}
-	
-	override func viewDidAppear(animated: Bool) {
-		super.viewDidAppear(animated)
 		loadTemplatesDirectory()
 		
-		drawView.backgroundColor = UIColor.lightGrayColor()
+		drawView.backgroundColor = UIColor.cyanColor()
 		drawView.onDidFinishDrawing = { drawnPoints in
 			if drawnPoints == nil {
 				return
@@ -56,6 +51,7 @@ class ViewController: UIViewController {
 				let templateData = NSData(contentsOfFile: templatesFolder.stringByAppendingFormat("/%@", file))
 				let templateDict = try NSJSONSerialization.JSONObjectWithData(templateData!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
 				let templateName = templateDict["name"]! as! String
+				let templateImage = templateDict["image"]! as! String
 				let templateRawPoints: [AnyObject] = templateDict["points"]! as! [AnyObject]
 				var templatePoints: [StrokePoint] = []
 				for rawPoint in templateRawPoints {
@@ -68,16 +64,16 @@ class ViewController: UIViewController {
 				loadedTemplates.append(templateObj)
 				print("  - Loaded template '\(templateName)' with \(templateObj.points.count) points inside")
 				
-				let templateView = StrokeView(frame: CGRectMake(x,0,size,size))
-				let scaled = StrokePoint.translate(StrokePoint.scale(templateObj.points, toSize: Double(size)), to: StrokePoint(point: CGPointZero))
-				templateView.loadPath(scaled)
+				let templateView = UIImageView(frame: CGRectMake(x,0,size,size))
+				templateView.image = UIImage(named: templateImage)
+				templateView.contentMode = UIViewContentMode.ScaleAspectFit
 				templatesScrollView.addSubview(templateView)
 				x = CGRectGetMaxX(templateView.frame)+2
 			}
 			print("- \(loadedTemplates.count) templates are now loaded!")
 			templatesScrollView.contentSize = CGSizeMake(x+CGFloat(2*loadedTemplates.count), size)
 			templatesScrollView.backgroundColor = UIColor.whiteColor()
-			labelTemplates.text = "\(loadedTemplates.count) AVAILABLE TEMPLATES"
+			labelTemplates.text = "\(loadedTemplates.count) TEMPLATES LOADED:"
 		} catch (let error as NSError) {
 			print("Something went wrong while loading templates: \(error.localizedDescription)")
 		}

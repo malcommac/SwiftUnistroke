@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 
+![SwiftUnistroke](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)
+
 ## Description
 SwiftUnistroke is a pure Swift 2 implementation of the $1 Unistroke Algorithm developed by Jacob Wobbrock, Andy Wilson and Yang Li.
 
@@ -69,7 +71,7 @@ In order to perform a search you need to allocate a new ```SwiftUnistroke``` and
 ```swift
 let recognizer = SwiftUnistroke(points: inputPoints!)
 do {
-	let (template,distance) = try recognizer(self.templates, useProtractor:  false)
+	let (template,distance) = try recognizer.recognizeIn(self.templates, useProtractor:  false)
 	if template != nil {
 		print("[FOUND] Template found is \(template!.name) with distance: \(distance!)")
 	} else {
