@@ -19,6 +19,23 @@ A more detailed description of the algorithm is available both on [official proj
 This library also contain an example project which demostrate how the algorithm works with a set of loaded templates; extends this library is pretty easy and does not involve any machine learning stuff.
 Other languages implementation can be [found here](https://depts.washington.edu/aimgroup/proj/dollar/).
 
+###Highlights
+- [x] Fast gestures recognition
+- [x] Simple code, less than 200 lines
+- [x] Easy extensible pattern templates collection
+- [x] High performance even with old hardware
+- [x] Machine learning is not necessary
+- [x] An optional enhancement called protractor ([more](http://dl.acm.org/citation.cfm?id=1753654)) improves speed.
+
+## Communication
+- If you **found a bug**, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+
+##Version History
+##1.2 (Oct 9, 2015)
+- First version
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -26,6 +43,44 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 - Mac OS X 10.10+ or iOS 8+
 - Swift 2+
+
+## How to use it
+SwiftUnistroke is really simple to use: first of all you need to provide a set of templates; each template is composed by a series of points which describe the path.
+You can create a new ```SwiftUnistrokeTemplate``` object from an array of ```CGPoints``` or ```StrokePoint```.
+
+In this example we load a template from a JSON dictionary which contains ```name```,```points``` keys:
+
+```swift
+let templateDict = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.AllowFragments) as! NSDictionary
+let name = templateDict["name"]! as! String
+let rawPoints: [AnyObject] = templateDict["points"]! as! [AnyObject]
+
+var points: [StrokePoint] = []
+for rawPoint in rawPoints {
+	let x = (rawPoint as! [AnyObject]).first! as! Double
+	let y = (rawPoint as! [AnyObject]).last! as! Double
+	points(StrokePoint(x: x, y: y))
+}		
+let templateObj = SwiftUnistrokeTemplate(name: name, points: points)		
+```
+Now suppose you have an array of ```SwiftUnistrokeTemplate``` and an array of captured points (```inputPoints```, your path to recognize).
+In order to perform a search you need to allocate a new ```SwiftUnistroke``` and call ```recognizeIn()``` method:
+
+```swift
+let recognizer = SwiftUnistroke(points: inputPoints!)
+do {
+	let (template,distance) = try recognizer(self.templates, useProtractor:  false)
+	if template != nil {
+		print("[FOUND] Template found is \(template!.name) with distance: \(distance!)")
+	} else {
+		print("[FAILED] Template not found")
+	}
+} catch (let error as NSError) {
+	print("[FAILED] Error: \(error.localizedDescription)")
+}
+```
+
+That's all, this method return the best match in your templates bucket.
 
 ## Installation
 
@@ -36,9 +91,11 @@ it, simply add the following line to your Podfile:
 pod "SwiftUnistroke"
 ```
 
-## Author
-
-Daniele Margutti, me@danielemargutti.com
+### Author
+Daniele Margutti  
+*web*: [www.danielemargutti.com](http://www.danielemargutti.com)  
+*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
+*mail*: hello [at] danielemargutti dot com    
 
 ## License
 
