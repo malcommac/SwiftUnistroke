@@ -1,4 +1,5 @@
 # SwiftUnistroke
+### $1 Unistroke Gesture Recognizer in pure Swift
 
 [![CI Status](http://img.shields.io/travis/Daniele Margutti/SwiftUnistroke.svg?style=flat)](https://travis-ci.org/Daniele Margutti/SwiftUnistroke)
 [![Version](https://img.shields.io/cocoapods/v/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
