@@ -2,7 +2,7 @@
 //  SwiftOneStrokeTests.swift
 //  SwiftOneStrokeTests
 //
-//  Created by daniele on 02/10/15.
+//  Created by Daniele Margutti on 02/10/15.
 //  Copyright © 2015 danielemargutti. All rights reserved.
 //
 

@@ -2,18 +2,18 @@
 //  ViewController.swift
 //  SwiftOneStroke
 //
-//  Created by daniele on 02/10/15.
+//  Created by Daniele Margutti on 02/10/15.
 //  Copyright © 2015 danielemargutti. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-	private var loadedTemplates : [SwiftUnistrokeTemplate] = []
-	private var templateViews: [StrokeView] = []
-	@IBOutlet var drawView: StrokeView!
-	@IBOutlet var templatesScrollView: UIScrollView!
-	@IBOutlet var labelTemplates: UILabel!
+	private var loadedTemplates			:[SwiftUnistrokeTemplate] = []
+	private var templateViews			:[StrokeView] = []
+	@IBOutlet var drawView				:StrokeView!
+	@IBOutlet var templatesScrollView	:UIScrollView!
+	@IBOutlet var labelTemplates		:UILabel!
 	
 	
 	override func viewDidLoad() {
@@ -21,27 +21,52 @@ class ViewController: UIViewController {
 		loadTemplatesDirectory()
 		
 		drawView.backgroundColor = UIColor.cyanColor()
+		// we set a completion handler called on touchesCancelled/End which
+		// grab drawn points and pass them to the one stroke recognizer class
 		drawView.onDidFinishDrawing = { drawnPoints in
 			if drawnPoints == nil {
+				return
+			}
+			
+			if drawnPoints!.count < 5 {
 				return
 			}
 			
 			let strokeRecognizer = SwiftUnistroke(points: drawnPoints!)
 			do {
 				let (template,distance) = try strokeRecognizer.recognizeIn(self.loadedTemplates, useProtractor:  false)
+				
+				var title: String = ""
+				var message: String = ""
 				if template != nil {
+					title = "Gesture Recognized!"
+					message = "Let me try...is it a \(template!.name.uppercaseString)?"
 					print("[FOUND] Template found is \(template!.name) with distance: \(distance!)")
 				} else {
 					print("[FAILED] Template not found")
+					title = "Ops...!"
+					message = "I cannot recognize this gesture. So sad my dear..."
 				}
+				
+				let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+				let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+				alert.addAction(okButton)
+				self.presentViewController(alert, animated: true, completion: nil)
+
 			} catch (let error as NSError) {
 				print("[FAILED] Error: \(error.localizedDescription)")
+				
+				let alert = UIAlertController(title: "Ops, something wrong happened!", message: "\(error.localizedDescription)", preferredStyle: UIAlertControllerStyle.Alert)
+				let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+				alert.addAction(okButton)
+				self.presentViewController(alert, animated: true, completion: nil)
 			}
 		}
 	}
 	
 	private func loadTemplatesDirectory() {
 		do {
+			// Load template files
 			let templatesFolder = NSBundle.mainBundle().resourcePath!.stringByAppendingString("/Templates")
 			let list = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(templatesFolder)
 			
@@ -64,13 +89,19 @@ class ViewController: UIViewController {
 				loadedTemplates.append(templateObj)
 				print("  - Loaded template '\(templateName)' with \(templateObj.points.count) points inside")
 				
+				// For each template get its preview and show them inside the bottom screen scroll view
 				let templateView = UIImageView(frame: CGRectMake(x,0,size,size))
 				templateView.image = UIImage(named: templateImage)
 				templateView.contentMode = UIViewContentMode.ScaleAspectFit
+				templateView.layer.borderColor = UIColor.lightGrayColor().CGColor
+				templateView.layer.borderWidth = 2
 				templatesScrollView.addSubview(templateView)
 				x = CGRectGetMaxX(templateView.frame)+2
 			}
+			
 			print("- \(loadedTemplates.count) templates are now loaded!")
+			
+			// setup scroll view size
 			templatesScrollView.contentSize = CGSizeMake(x+CGFloat(2*loadedTemplates.count), size)
 			templatesScrollView.backgroundColor = UIColor.whiteColor()
 			labelTemplates.text = "\(loadedTemplates.count) TEMPLATES LOADED:"
@@ -81,7 +112,6 @@ class ViewController: UIViewController {
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 
 
