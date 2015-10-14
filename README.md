@@ -6,14 +6,7 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 
-![SwiftUnistroke](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)
-
 [![SwiftUnistroke Video](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)](http://www.youtube.com/watch?v=P7wQVkmTkPY)
-
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=P7wQVkmTkPY
-" target="_blank"><img src="http://img.youtube.com/vi/P7wQVkmTkPY/0.jpg" 
-alt="IMAGE ALT TEXT HERE" width="500" height="297" border="10" /></a>
 
 ## Description
 SwiftUnistroke is a pure Swift 2 implementation of the $1 Unistroke Algorithm developed by Jacob Wobbrock, Andy Wilson and Yang Li.
