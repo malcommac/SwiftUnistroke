@@ -34,11 +34,11 @@ Other languages implementation can be [found here](https://depts.washington.edu/
 - [x] An optional enhancement called protractor ([more](http://dl.acm.org/citation.cfm?id=1753654)) improves speed.
 
 ### Author
-Daniele Margutti  
-*web*: [www.danielemargutti.com](http://www.danielemargutti.com)
-*linkedin*: [https://linkedin.com/in/danielemargutti](https://linkedin.com/in/danielemargutti)
-*twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
-*mail*: hello [at] danielemargutti dot com
+Daniele Margutti
+- *web*: [www.danielemargutti.com](http://www.danielemargutti.com)
+- *linkedin*: [https://linkedin.com/in/danielemargutti](https://linkedin.com/in/danielemargutti)
+- *twitter*: [@danielemargutti](http://www.twitter.com/danielemargutti)  
+- *mail*: [hello@danielemargutti.com](hello@danielemargutti.com)
 
 ## Communication
 - If you **found a bug**, open an issue.
