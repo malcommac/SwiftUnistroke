@@ -8,7 +8,8 @@
 
 [![SwiftUnistroke Video](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)](http://www.youtube.com/watch?v=P7wQVkmTkPY)
 
-##[CLICK HERE TO SEE A DEMO VIDEO](http://www.youtube.com/watch?v=P7wQVkmTkPY)
+##>>[CLICK HERE TO SEE A DEMO VIDEO](http://www.youtube.com/watch?v=P7wQVkmTkPY)
+##>>[ORIGINAL POST](http://danielemargutti.com/1-recognizer-in-swift-2/)
 
 ## Description
 SwiftUnistroke is a pure Swift 2 implementation of the $1 Unistroke Algorithm developed by Jacob Wobbrock, Andy Wilson and Yang Li.
