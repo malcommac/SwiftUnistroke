@@ -8,7 +8,7 @@
 
 ![SwiftUnistroke](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)
 
-[![SwiftUnistroke](https://github.com/malcommac/SwiftUnistroke/blob/master/ExampleMovie.mp4?raw=true)](Movie)
+[![SwiftUnistroke](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/ExampleMovie.mp4)](Movie)
 
 
 ## Description
