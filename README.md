@@ -8,6 +8,9 @@
 
 ![SwiftUnistroke](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)
 
+[![SwiftUnistroke](https://github.com/malcommac/SwiftUnistroke/blob/master/ExampleMovie.mp4?raw=true)](Movie)
+
+
 ## Description
 SwiftUnistroke is a pure Swift 2 implementation of the $1 Unistroke Algorithm developed by Jacob Wobbrock, Andy Wilson and Yang Li.
 
