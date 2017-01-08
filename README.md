@@ -1,15 +1,22 @@
-# SwiftUnistroke
-### $1 Unistroke Gesture Recognizer in pure Swift
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/logo.png" width=210px height=204px alt="SwiftUnistroke" title="SwiftUnistroke">
+</p>
+
+<p align="center" >$1 Unistroke Gesture Recognizer in Swift<p/>
+<p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
 
 [![CI Status](http://img.shields.io/travis/Daniele Margutti/SwiftUnistroke.svg?style=flat)](https://travis-ci.org/Daniele Margutti/SwiftUnistroke)
 [![Version](https://img.shields.io/cocoapods/v/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 [![License](https://img.shields.io/cocoapods/l/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftUnistroke.svg?style=flat)](http://cocoapods.org/pods/SwiftUnistroke)
 
-[![SwiftUnistroke Video](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)](http://www.youtube.com/watch?v=P7wQVkmTkPY)
+# SwiftUnistroke
 
-##>>[CLICK HERE TO SEE A DEMO VIDEO](http://www.youtube.com/watch?v=P7wQVkmTkPY)
-##>>[ORIGINAL POST](http://danielemargutti.com/1-recognizer-in-swift-2/)
+## Demo
+A full video of the gesture recognizer is available here:
+* [$1 Unistroke Demo](http://www.youtube.com/watch?v=P7wQVkmTkPY)
+
+[![SwiftUnistroke Video](https://raw.githubusercontent.com/malcommac/SwiftUnistroke/master/swiftunistroke.png)](http://www.youtube.com/watch?v=P7wQVkmTkPY)
 
 ## Description
 SwiftUnistroke is a pure Swift 2 implementation of the $1 Unistroke Algorithm developed by Jacob Wobbrock, Andy Wilson and Yang Li.
